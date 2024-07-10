@@ -16,3 +16,21 @@
 ```
     php artisan migrate --force
 ```
+
+## If you have installed Tailwind then,
+
+Add this to vite.config
+```
+    server: {
+        host: '127.0.0.1',
+        port: 3000,
+},
+```
+Run commands in command line
+
+    npm run build  
+
+Npm run dev
+
+    npm run dev 
+        
