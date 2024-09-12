@@ -11,8 +11,6 @@ services:
       - .:/var/www/html    # Maps all files to /var/www/html
     networks:
       - app-network
-    depends_on:
-      - db
 
   webserver:
     image: nginx:alpine
