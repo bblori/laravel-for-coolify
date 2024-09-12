@@ -1,9 +1,36 @@
-services:
+version: '3.8'
 
-  laravel-docker:
-    container_name: laravel-docker
-    build: .
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: laravel_app
+    working_dir: /var/www/html
     volumes:
-      - .:/var/www/html
+      - .:/var/www/html    # Maps all files to /var/www/html
+    networks:
+      - app-network
+    depends_on:
+      - db
+
+  webserver:
+    image: nginx:alpine
+    container_name: nginx_webserver
+    restart: unless-stopped
     ports:
-      - 9000:80
+      - "8000:80"
+    volumes:
+      - .:/var/www/html    # Maps all files to /var/www/html
+      - ./docker/nginx/conf.d:/etc/nginx/conf.d  # Nginx config
+    networks:
+      - app-network
+    depends_on:
+      - app
+
+volumes:
+  dbdata:
+
+networks:
+  app-network:
+    driver: bridge
