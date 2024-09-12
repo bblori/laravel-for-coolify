@@ -17,7 +17,7 @@ services:
     container_name: nginx_webserver
     restart: unless-stopped
     ports:
-      - "8000:80"
+      - "8002:80"
     volumes:
       - .:/var/www/html    # Maps all files to /var/www/html
       - ./docker/nginx/conf.d:/etc/nginx/conf.d  # Nginx config
