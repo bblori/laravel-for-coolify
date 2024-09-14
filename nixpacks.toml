@@ -10,11 +10,18 @@ cmds = [
     "..."
 ]
 [start]
-cmd = '/assets/start.sh && /mybash.sh'
+cmd = '/assets/start.sh'
 
 [staticAssets]
 "start.sh" = '''
 #!/bin/bash
+
+echo "APP_DEBUG=true" >> /app/.env
+echo "DB_CONNECTION=\"mysql\"" >> /app/.env
+echo "DB_DATABASE=\"test\"" >> /app/.env
+echo "DB_HOST=173.249.14.18" >> /app/.env
+echo "DB_PASSWORD=\"Volvo2000\"" >> /app/.env
+echo "DB_USERNAME=\"test\"" >> /app/.env
 
 # Transform the nginx configuration
 node /assets/scripts/prestart.mjs /assets/nginx.template.conf /etc/nginx.conf
