@@ -18,6 +18,7 @@ cmd = '/assets/start.sh'
 
 # Run the command and store the output in a variable
 appkey=$(php artisan key:generate --show)
+
 echo "Generated key: $appkey"
 
 # Inserting datas into env file.
@@ -30,6 +31,7 @@ echo "DB_HOST=173.249.14.18" >> /app/.env
 echo "DB_PASSWORD=\"Volvo2000\"" >> /app/.env
 echo "DB_USERNAME=\"test\"" >> /app/.env
 chmod -R o+w storage
+php artisan migrate --force
 
 
 # Transform the nginx configuration
