@@ -57,10 +57,6 @@ serverurl=unix:///assets/supervisor.sock
 
 [include]
 files = /etc/supervisor/conf.d/*.conf
-
-# Run your bash.sh script after supervisor finishes
-sh /app/afterbuild.sh
-
 '''
 
 "worker-nginx.conf" = '''
