@@ -57,6 +57,13 @@ serverurl=unix:///assets/supervisor.sock
 
 [include]
 files = /etc/supervisor/conf.d/*.conf
+
+# Wait for all supervisord processes to finish
+supervisorctl tail -f all
+
+# Run your bash.sh script after supervisor finishes
+sh /app/afterbuild.sh
+
 '''
 
 "worker-nginx.conf" = '''
@@ -187,4 +194,3 @@ http {
     }
 }
 '''
-sh /app/afterbuild.sh
