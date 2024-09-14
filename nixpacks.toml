@@ -11,7 +11,7 @@ cmds = [
     "..."
 ]
 [start]
-cmd = '/assets/start.sh && /afterbuild.sh'
+cmd = '/assets/start.sh && /app/afterbuild.sh'
 
 [staticAssets]
 "start.sh" = '''
