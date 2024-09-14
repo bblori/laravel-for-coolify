@@ -38,7 +38,7 @@ supervisord -c /etc/supervisord.conf -n
 sleep 5
 
 # Add the command to run your custom script after supervisord has started
-sh /app/mafterbuild.sh
+sh /app/afterbuild.sh
 
 # Optionally, wait for all supervisord processes to finish
 supervisorctl tail -f all
