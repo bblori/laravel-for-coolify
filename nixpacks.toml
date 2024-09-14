@@ -10,6 +10,15 @@ cmds = [
     "..."
 ]
 
+[variables]
+APP_DEBUG = "true"
+APP_KEY =
+DB_CONNECTION="mysql"
+DB_DATABASE="test"
+DB_HOST=173.249.14.18
+DB_PASSWORD="Volvo2000"
+DB_USERNAME="test"
+
 [start]
 cmd = '/assets/start.sh'
 
