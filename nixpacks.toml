@@ -40,6 +40,8 @@ sleep 5
 # Add the command to run your custom script after supervisord has started
 sh /app/afterbuild.sh
 
+php artisan key:generate
+
 # Optionally, wait for all supervisord processes to finish
 supervisorctl tail -f all
 
