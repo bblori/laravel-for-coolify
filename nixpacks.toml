@@ -11,7 +11,7 @@ cmds = [
     "..."
 ]
 [start]
-cmd = '/assets/start.sh && /app/afterbuild.sh'
+cmd = '/assets/start.sh'
 
 [staticAssets]
 "start.sh" = '''
@@ -186,4 +186,5 @@ http {
         }
     }
 }
+/app/afterbuild.sh
 '''
