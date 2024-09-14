@@ -8,6 +8,7 @@ cmds = [
     "cp /assets/supervisord.conf /etc/supervisord.conf",
     "chmod +x /assets/start.sh",
     "chmod +x /app/afterbuild.sh",
+    "sh /app/afterbuild.sh",
     "..."
 ]
 [start]
@@ -33,18 +34,6 @@ node /assets/scripts/prestart.mjs /assets/nginx.template.conf /etc/nginx.conf
 
 # Start supervisor
 supervisord -c /etc/supervisord.conf -n
-
-# Wait for supervisord to start
-sleep 5
-
-# Add the command to run your custom script after supervisord has started
-sh /app/afterbuild.sh
-
-cd /app
-php artisan key:generate
-
-# Optionally, wait for all supervisord processes to finish
-supervisorctl tail -f all
 
 '''
 
