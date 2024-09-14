@@ -7,9 +7,6 @@ cmds = [
     "cp /assets/worker-*.conf /etc/supervisor/conf.d/",
     "cp /assets/supervisord.conf /etc/supervisord.conf",
     "chmod +x /assets/start.sh",
-    "chmod +x /app/afterbuild.sh",
-    # Run the command and store the output in a variable
-    "ARTISAN_KEY_OUTPUT=$(php artisan key:generate --show)",
     "..."
 ]
 [start]
@@ -19,8 +16,13 @@ cmd = '/assets/start.sh'
 "start.sh" = '''
 #!/bin/bash
 
+# Run the command and store the output in a variable
+appkey=$(php artisan key:generate --show)
+echo "Generated key: $appkey"
+
+# Inserting datas into env file.
 echo " " >> /app/.env
-echo "APP_KEY=$ARTISAN_KEY_OUTPUT" >> /app/.env
+echo "APP_KEY=$appkey" >> /app/.env
 echo "APP_DEBUG=true" >> /app/.env
 echo "DB_CONNECTION=\"mysql\"" >> /app/.env
 echo "DB_DATABASE=\"test\"" >> /app/.env
