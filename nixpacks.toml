@@ -8,7 +8,8 @@ cmds = [
     "cp /assets/supervisord.conf /etc/supervisord.conf",
     "chmod +x /assets/start.sh",
     "chmod +x /app/afterbuild.sh",
-    "sh /app/afterbuild.sh",
+    # Run the command and store the output in a variable
+    "ARTISAN_KEY_OUTPUT=$(php artisan key:generate --show)",
     "..."
 ]
 [start]
@@ -19,7 +20,7 @@ cmd = '/assets/start.sh'
 #!/bin/bash
 
 echo " " >> /app/.env
-echo "APP_KEY=" >> /app/.env
+echo "APP_KEY=$ARTISAN_KEY_OUTPUT" >> /app/.env
 echo "APP_DEBUG=true" >> /app/.env
 echo "DB_CONNECTION=\"mysql\"" >> /app/.env
 echo "DB_DATABASE=\"test\"" >> /app/.env
