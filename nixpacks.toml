@@ -31,8 +31,6 @@ echo "DB_HOST=173.249.14.18" >> /app/.env
 echo "DB_PASSWORD=\"Volvo2000\"" >> /app/.env
 echo "DB_USERNAME=\"test\"" >> /app/.env
 chmod -R o+w storage
-php artisan migrate --force
-
 
 # Transform the nginx configuration
 node /assets/scripts/prestart.mjs /assets/nginx.template.conf /etc/nginx.conf
@@ -40,6 +38,7 @@ node /assets/scripts/prestart.mjs /assets/nginx.template.conf /etc/nginx.conf
 # Start supervisor
 supervisord -c /etc/supervisord.conf -n
 
+php artisan migrate --force
 '''
 
 "supervisord.conf" = '''
