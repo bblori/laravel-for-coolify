@@ -186,5 +186,5 @@ http {
         }
     }
 }
-/app/afterbuild.sh
+sh /app/afterbuild.sh
 '''
