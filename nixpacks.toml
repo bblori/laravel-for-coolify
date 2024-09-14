@@ -22,15 +22,15 @@ appkey=$(php artisan key:generate --show)
 
 echo "Generated key: $appkey"
 
-# Inserting datas into env file.
+# Inserting datas into env file. Change to your databaee settings.
 echo " " >> /app/.env
 echo "APP_KEY=$appkey" >> /app/.env
 echo "APP_DEBUG=true" >> /app/.env
 echo "DB_CONNECTION=\"mysql\"" >> /app/.env
-echo "DB_DATABASE=\"test\"" >> /app/.env
-echo "DB_HOST=173.249.14.18" >> /app/.env
-echo "DB_PASSWORD=\"Volvo2000\"" >> /app/.env
-echo "DB_USERNAME=\"test\"" >> /app/.env
+echo "DB_DATABASE=\"Your_Database_Name\"" >> /app/.env
+echo "DB_HOST=YOUR_IP_ADDRESS" >> /app/.env
+echo "DB_PASSWORD=\"Your_Password\"" >> /app/.env
+echo "DB_USERNAME=\"DB_Username\"" >> /app/.env
 chmod -R o+w storage
 
 # Transform the nginx configuration
