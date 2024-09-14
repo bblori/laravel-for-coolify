@@ -10,8 +10,7 @@ cmds = [
     "..."
 ]
 [start]
-cmd = '/assets/start.sh'
-cmd = 'mybash.sh'
+cmd = '/assets/start.sh && /mybash.sh'
 
 [staticAssets]
 "start.sh" = '''
