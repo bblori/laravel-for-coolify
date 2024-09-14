@@ -16,7 +16,8 @@ cmd = '/assets/start.sh'
 "start.sh" = '''
 #!/bin/bash
 
-echo "\nAPP_DEBUG=true" >> /app/.env
+echo " " >> /app/.env
+echo "APP_DEBUG=true" >> /app/.env
 echo "DB_CONNECTION=\"mysql\"" >> /app/.env
 echo "DB_DATABASE=\"test\"" >> /app/.env
 echo "DB_HOST=173.249.14.18" >> /app/.env
